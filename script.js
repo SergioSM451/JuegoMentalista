@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const resultMessage = document.getElementById('result');
   let attempts = 0;
   const maxAttempts = 10;
-  const secretNumber = Math.floor(Math.random() * 1000) + 1;
+  const secretNumber = Math.floor(Math.random() * 100) + 1;
 
   form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita que el formulario se envíe
+    event.preventDefault();
     
     if (attempts >= maxAttempts) {
       resultMessage.textContent = `¡Se acabaron los intentos! El número secreto era ${secretNumber}.`;
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const guessInput = document.getElementById('guess-input');
     const guessedNumber = parseInt(guessInput.value);
     
-    if (isNaN(guessedNumber) || guessedNumber < 1 || guessedNumber > 1000) {
+    if (isNaN(guessedNumber) || guessedNumber < 1 || guessedNumber > 100) {
       resultMessage.textContent = 'Por favor ingrese un número válido entre 1 y 1000.';
       return;
     }
